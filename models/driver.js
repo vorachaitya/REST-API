@@ -1,6 +1,18 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//create geolocation schema
+const GeoSchema = new Schema({
+  type: {
+    type: String,
+    default: "Point",
+  },
+  coordinates: {
+    type: [Number],
+    index: "2dsphere",
+  },
+});
+
 //create driver Schema and model
 const DriverSchema = new Schema({
   name: {
@@ -14,8 +26,9 @@ const DriverSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  geometry: GeoSchema,
 });
 
-const Driver = mongoose.model("driver", DriverSchema);
+const Driver = mongoose.model("USER", DriverSchema);
 
 module.exports = Driver;
