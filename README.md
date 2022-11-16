@@ -16,5 +16,4 @@ A project made using REST-API that has following features:
 - Express.js
 - MongoDB
 - Postman
-
-* CSS
+- CSS
